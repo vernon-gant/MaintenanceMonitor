@@ -12,7 +12,7 @@ TODO: Installing
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Explain how to run the automated tests for this service
 
 ### Break down into end to end tests
 
@@ -32,5 +32,5 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live service
 
