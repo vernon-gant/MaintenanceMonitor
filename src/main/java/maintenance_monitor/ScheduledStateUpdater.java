@@ -16,13 +16,15 @@ public class ScheduledStateUpdater {
         this.repository = repository;
     }
 
-    @Scheduled(cron = "0 22 14 ? * FRI")
+    @Scheduled(cron = "30 22 20 ? * FRI")
     public void changeState() throws InterruptedException {
         Service service = repository.findByName("IBM");
-        service.setNextTimeAvailable(OffsetDateTime.now().plus(328500, ChronoUnit.MILLIS));
+        //service.setNextTimeAvailable(OffsetDateTime.now().plus(328500, ChronoUnit.MILLIS));
+        service.setNextTimeAvailable(OffsetDateTime.now().plus(10, ChronoUnit.SECONDS));
         service.setState(State.DISABLED);
         repository.save(service);
-        TimeUnit.MILLISECONDS.sleep(328500);
+//        TimeUnit.MILLISECONDS.sleep(328500);
+        TimeUnit.SECONDS.sleep(10);
         service.setState(State.ENABLED);
         service.setNextTimeAvailable(null);
         repository.save(service);
