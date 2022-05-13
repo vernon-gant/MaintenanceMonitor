@@ -5,7 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
 @Entity
@@ -14,13 +15,17 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 public class Service {
 
+
     @Id
-    @GeneratedValue
-    private Long id;
     @NonNull
     private String name;
     @NonNull
     private State state;
-    @NonNull
-    private OffsetDateTime nextUnavailable;
+    private OffsetDateTime nextTimeAvailable;
+
+    public Service(@NonNull String name, OffsetDateTime nextTimeAvailable) {
+        this.name = name;
+        this.state = State.DISABLED;
+        this.nextTimeAvailable = nextTimeAvailable;
+    }
 }
