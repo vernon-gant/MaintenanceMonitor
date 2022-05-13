@@ -16,7 +16,7 @@ public class ScheduledStateUpdater {
         this.repository = repository;
     }
 
-    @Scheduled(cron = "0 53 13 ? * FRI")
+    @Scheduled(cron = "0 22 14 ? * FRI")
     public void changeState() throws InterruptedException {
         Service service = repository.findByName("IBM");
         service.setNextTimeAvailable(OffsetDateTime.now().plus(328500, ChronoUnit.MILLIS));
